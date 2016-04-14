@@ -40,17 +40,22 @@ public class GCD {
     }
 
     static int gcd(int a, int b) {
-        if (a == 0)
+        if (a == 0) {
             return b;
-
-        while (b != 0) {
-            if (a > b)
-                a = a - b;
-            else
-                b = b - a;
+        }
+        if (b == 0) {
+            return a;
+        }
+        while (a != 0 && b != 0) {
+            if (a > b) {
+                a = a % b;
+            }
+            else {
+                b = b % a;
+            }
         }
 
-        return a;
+        return a + b;
     }
 
     static int get(int ts, int te, int qs, int qe, int idx) {
@@ -66,5 +71,3 @@ public class GCD {
                 get(mid + 1, te, qs, qe, idx * 2 + 2));
     }
 }
-
-
